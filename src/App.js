@@ -18,7 +18,7 @@ const updateEmployeeDetails = () => {
 
 
     return{
-      ...prevState, salary: 100, name:"GET"
+      ...prevState, salary: 130, name:"GET"
     }
   })
     
