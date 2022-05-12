@@ -7,7 +7,7 @@ import React, {useState} from "react"
 
 
 const personObj1 = {
-  id:1, name: "vidya", salary: 10000
+  id:1, name: "vidya", salary: 200
 }
 export const userContext = React.createContext({personObj1, changeDetails: () => {}})
 const  App = () =>  {
