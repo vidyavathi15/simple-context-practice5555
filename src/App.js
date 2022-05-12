@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import ComponentC from "./ComponentC"
 import './App.css';
+// import ComponentB from "./ComponentB";
+import React, {useState} from "react"
 
-function App() {
+
+
+
+const personObj1 = {
+  id:1, name: "vidya", salary: 10000
+}
+export const userContext = React.createContext({personObj1, changeDetails: () => {}})
+const  App = () =>  {
+
+  const [employee, setEmployee] = useState(userContext)
+const updateEmployeeDetails = () => {
+  setEmployee(prevState => {
+
+
+    return{
+      ...prevState, salary: 100, name:"GET"
+    }
+  })
+    
+}
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <center>
+        <userContext.Provider value ={{employee, changeDetails: updateEmployeeDetails}}>
+        
+        <ComponentC />
+
+
+        </userContext.Provider>
+        
+       
+
+      </center>
     </div>
   );
 }
 
-export default App;
+export default App 
